@@ -1,23 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleccionar el botón por su ID
-    const button1 = document.getElementById('navigate-button');
-    if (button1) {
-        button1.addEventListener('click', () => {
-            window.location.href = 'mainWindow.html';
-        });
-    }
+    // Seleccionar el botón y el campo de entrada
+    const navigateButton = document.getElementById('navigate-button');
+    const labelTextElement = document.getElementById('editableField');
 
-    const buttonNew = document.getElementById('buttonNew');
-    if (buttonNew) {
-        buttonNew.addEventListener('click', () => {
-            window.location.href = 'mainWindow.html';
-        });
-    }
+    navigateButton.addEventListener('click', () => {
+        // Obtener el valor del campo de entrada
+        const labelText = labelTextElement.value.trim();
 
-    const icon = document.getElementById('icon');
-    if (icon) {
-        icon.addEventListener('click', () => {
-            window.location.href = 'new.html';
-        });
-    }
+        // Convertir el valor a un número
+        const amount = parseFloat(labelText);
+
+        // Verificar si el valor es válido y mayor a cero
+        if (!isNaN(amount) && amount >= 0) {
+            // Redirigir a la siguiente página
+            window.location.href = 'mainWindow.html';
+        } else {
+            // Mostrar una advertencia si el valor no es válido
+            alert('El monto debe ser un número mayor a $0 para continuar.');
+        }
+    });
 });

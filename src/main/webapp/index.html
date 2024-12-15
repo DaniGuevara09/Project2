@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Main</title>
 </head>
@@ -14,10 +13,13 @@
                 <div class="overlap">
                     <div class="div">
                         <button id="navigate-button" class="button">
-                            <div class="text"><div class="text-wrapper">Button</div></div>
+                            <div class="text"><div class="text-wrapper">Next</div></div>
                         </button>
                         <div class="label-AA">
-                            <div class="state-layer"><div class="label-text">$ 0.00</div></div>
+                            <div class="state-layer">
+                                <label for="editableField"></label>
+                                <input type="number" class="label-text" contenteditable="true" id="editableField" min="0">
+                            </div>
                         </div>
                     </div>
                     <div class="text-wrapper-2">Enter the initial amount</div>

@@ -121,6 +121,7 @@
     letter-spacing: 0.10px;
     line-height: 20px;
     white-space: nowrap;
+    outline: none;
 }
 
 .project-first .text-wrapper-2 {
