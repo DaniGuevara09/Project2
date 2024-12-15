@@ -1,0 +1,211 @@
+.project-new-mov {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.project-new-mov .group-wrapper {
+    background-color: #ffffff;
+    overflow: hidden;
+    width: 606px;
+    height: 578px;
+}
+
+.project-new-mov .group {
+    width: 608px;
+    height: 578px;
+}
+
+.project-new-mov .overlap-group {
+    position: relative;
+    width: 606px;
+    height: 578px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.project-new-mov .button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    width: 120px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    position: absolute;
+    top: 518px;
+    left: 243px;
+    background-color: #1f3633;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-new-mov .text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 8px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-new-mov .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+.project-new-mov .combobox-interactive {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    position: absolute;
+    top: 235px;
+    left: 316px;
+    background-color: #ffffff;
+}
+
+.project-new-mov .input-interactive {
+    display: flex;
+    flex-direction: column;
+    width: 209px;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-new-mov .text-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+}
+
+.project-new-mov .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.project-new-mov .input-field {
+    gap: 8px;
+    padding: 3px 4px 3px 12px;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    background-color: #ededed;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.project-new-mov .input {
+    gap: 1px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.project-new-mov .text-placeholder {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-weight: 400;
+    color: #1e1e1e;
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.project-new-mov .buttons-select-btn {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-new-mov .input-interactive-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    position: absolute;
+    top: 235px;
+    left: 82px;
+    background-color: #ffffff;
+}
+
+.project-new-mov .label-AA {
+    display: flex;
+    width: 443px;
+    height: 63px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 134px;
+    left: 82px;
+    background-color: #ededed;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 1px 3px 1px #00000026, 0px 1px 2px #0000004c;
+}
+
+.project-new-mov .state-layer {
+    display: inline-flex;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 16px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-new-mov .label-text {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-weight: 500;
+    color: #1d1b20;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0.10px;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.project-new-mov .div {
+    position: absolute;
+    width: 287px;
+    height: 62px;
+    top: 32px;
+    left: 160px;
+    font-weight: 700;
+    color: #000000;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
