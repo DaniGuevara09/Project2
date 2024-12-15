@@ -298,6 +298,36 @@
     border-radius: 10px;
 }
 
+.project .box-2 {
+    background-color: #9d84b5;
+    position: absolute;
+    width: 216px;
+    height: 155px;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
+.project .box-3 {
+    background-color: #b59484;
+    position: absolute;
+    width: 216px;
+    height: 155px;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
+.project .box-4 {
+    background-color: #849bb5;
+    position: absolute;
+    width: 216px;
+    height: 155px;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
 .project .text-wrapper-9 {
     position: absolute;
     width: 140px;
@@ -379,7 +409,7 @@
     height: 155px;
     top: 121px;
     left: 33px;
-    background-color: #cbcbcb;
+    background-color: #84B58F;
     border-radius: 10px;
 }
 
