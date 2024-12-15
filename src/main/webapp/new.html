@@ -11,32 +11,51 @@
         <div class="group">
             <div class="overlap-group">
                 <button id="buttonNew" class="button">
-                    <div class="text"><div class="text-wrapper">Button</div></div>
+                    <div class="text"><div class="text-wrapper">Next</div></div>
                 </button>
+                <!-- ComboBox para Type -->
                 <div class="combobox-interactive">
                     <div class="input-interactive">
                         <div class="text-input">
                             <div class="container">
                                 <div class="input-field">
-                                    <div class="input"><div class="text-placeholder">Type</div></div>
+                                    <div class="input">
+                                        <select id="typeSelect" class="text-placeholder">
+                                            <!-- Opciones se agregarán con JS -->
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- ComboBox para Category -->
                 <div class="input-interactive-wrapper">
                     <div class="input-interactive">
                         <div class="text-input">
                             <div class="container">
                                 <div class="input-field">
-                                    <div class="input"><div class="text-placeholder">Category</div></div>
+                                    <div class="input">
+                                        <select id="categorySelect" class="text-placeholder">
+                                            <!-- Opciones se agregarán con JS -->
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="state-layer-wrapper">
+                    <div class="description-label">
+                        <label for="description-txt"></label>
+                        <input id="description-txt" class="txt">
+                    </div>
+                </div>
                 <div class="label-AA">
-                    <div class="state-layer"><div class="label-text">$ 0.00</div></div>
+                    <div class="state-layer">
+                        <label for="editableField"></label>
+                        <input type="number" class="label-text" contenteditable="true" id="editableField" min="0">
+                    </div>
                 </div>
                 <div class="div">New Movement</div>
             </div>

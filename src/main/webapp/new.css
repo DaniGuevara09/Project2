@@ -209,3 +209,18 @@
     letter-spacing: 0;
     line-height: normal;
 }
+
+.project-new-mov .description-label {
+    display: flex;
+    width: 443px;
+    height: 115px;
+    position: absolute;
+    top: 359px;
+    left: 82px;
+    background-color: #ededed;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 1px 3px 1px #00000026, 0px 1px 2px #0000004c;
+    align-items: center;
+    justify-content: center;
+}

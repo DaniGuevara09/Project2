@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const amountElement = document.querySelector('.label-AA .state-layer .label-text');
     console.log(amountElement)
     amountElement.textContent = `$ ${amount}`
+    localStorage.setItem('amountAvailable', amount.toString());
 
     // Button
     const icon = document.getElementById('icon');
