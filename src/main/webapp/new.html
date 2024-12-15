@@ -10,9 +10,6 @@
     <div class="group-wrapper">
         <div class="group">
             <div class="overlap-group">
-                <button id="buttonNew" class="button">
-                    <div class="text"><div class="text-wrapper">Next</div></div>
-                </button>
                 <!-- ComboBox para Type -->
                 <div class="combobox-interactive">
                     <div class="input-interactive">
@@ -47,18 +44,24 @@
                 </div>
                 <div class="state-layer-wrapper">
                     <div class="description-label">
-                        <label for="description-txt"></label>
-                        <input id="description-txt" class="txt">
+                        <label for="description-txt">Description:</label>
+                        <input id="description-txt" class="txt" type="text" required>
                     </div>
                 </div>
-                <label>
-                    <input type="date">
-                </label>
+                <!-- Mover el calendario entre la caja de descripción y el botón -->
+                <div class="date-picker-wrapper">
+                    <label for="date-input">Select Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <button id="buttonNew" class="button">
+                    <div class="text"><div class="text-wrapper">Next</div></div>
+                </button>
 
                 <div class="label-AA">
                     <div class="state-layer">
-                        <label for="editableField"></label>
-                        <input type="number" class="label-text" contenteditable="true" id="editableField" min="0">
+                        <label for="editableField">Amount:</label>
+                        <input type="number" class="label-text" id="editableField" min="0" required>
                     </div>
                 </div>
                 <div class="div">New Movement</div>

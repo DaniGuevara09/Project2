@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const isIncome = document.querySelector('#typeSelect').value === 'Income';
             const description = document.querySelector('#description-txt').value;
 
+            // Obtener la fecha seleccionada
+            const dateInput = document.querySelector('#date');
+            const date = dateInput ? dateInput.value : null; // Obtener la fecha
+
             // Obtener las categorías seleccionadas
             const categories = [];
             const selectedCategories = document.querySelectorAll('#categorySelect option:checked');
@@ -34,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalBudget: totalBudget,
                 isIncome: isIncome,
                 description: description,
+                date: date, // Agregar la fecha al objeto expense
                 categories: categories
             };
 
