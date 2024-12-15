@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const expenseJson = JSON.stringify(expense);
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', '/SvExpense', true);
+            xhr.open('POST', 'SvExpense', true);
             xhr.setRequestHeader('Content-Type', 'application/json');
 
             xhr.onreadystatechange = () => {

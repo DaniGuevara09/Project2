@@ -4,25 +4,25 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Expense {
-    private LocalDate date;
+    private String date;
     private int totalBudget;
     private boolean isIncome; // true = income; false = expense
     private String description;
     private ArrayList<Category> categories;
 
     public Expense() {
-        date = LocalDate.now();
+        date=LocalDate.now().toString();
         totalBudget = 0;
         isIncome = false;
         description = "";
         categories = new ArrayList<>();
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

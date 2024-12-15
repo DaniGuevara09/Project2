@@ -30,7 +30,7 @@ public class ExpenseDAO implements InterfaceDAO<Expense> {
             FindIterable<Document> it = collection.find();
             for (Document doc : it) {
                 Expense expense = new Expense();
-                expense.setDate(LocalDate.parse(doc.getString("date")));
+                expense.setDate(doc.getString("date")); // Almacena como String
                 expense.setTotalBudget(doc.getInteger("totalBudget"));
                 expense.setIncome(doc.getBoolean("isIncome"));
                 expense.setDescription(doc.getString("description"));
@@ -53,7 +53,6 @@ public class ExpenseDAO implements InterfaceDAO<Expense> {
         return expenses;
     }
 
-
     @Override
     public Expense save(Expense expense) {
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
@@ -70,7 +69,7 @@ public class ExpenseDAO implements InterfaceDAO<Expense> {
             }
 
             // Crear el documento de Expense
-            Document expenseDoc = new Document("date", expense.getDate().toString())
+            Document expenseDoc = new Document("date", expense.getDate()) // Almacena la fecha como String
                     .append("totalBudget", expense.getTotalBudget())
                     .append("isIncome", expense.isIncome())
                     .append("description", expense.getDescription())
@@ -82,9 +81,8 @@ public class ExpenseDAO implements InterfaceDAO<Expense> {
         return expense;
     }
 
-
     @Override
     public void close() throws IOException {
-
+        // Implementar lógica de cierre si es necesario
     }
 }
