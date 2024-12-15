@@ -12,11 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Verificar si el valor es válido y mayor a cero
         if (!isNaN(amount) && amount >= 0) {
+            // Guardar el monto en localStorage
+            localStorage.setItem('amountAvailable', amount);
+
             // Redirigir a la siguiente página
             window.location.href = 'mainWindow.html';
         } else {
             // Mostrar una advertencia si el valor no es válido
-            alert('El monto debe ser un número mayor a $0 para continuar.');
+            alert('The amount must be a number greater than $0 to continue');
         }
     });
 });
