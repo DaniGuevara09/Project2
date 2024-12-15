@@ -1,0 +1,151 @@
+.project-first {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.project-first .group-wrapper {
+    background-color: #ffffff;
+    overflow: hidden;
+    width: 606px;
+    height: 431px;
+}
+
+.project-first .group {
+    width: 610px;
+    height: 431px;
+}
+
+.project-first .overlap-group {
+    position: relative;
+    width: 606px;
+    height: 431px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.project-first .overlap {
+    position: absolute;
+    width: 563px;
+    height: 322px;
+    top: 79px;
+    left: 21px;
+    border-radius: 10px;
+}
+
+.project-first .div {
+    position: absolute;
+    width: 563px;
+    height: 322px;
+    top: 0;
+    left: 0;
+    background-color: #85b6b1;
+    border-radius: 10px;
+}
+
+.project-first .button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    width: 120px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    position: absolute;
+    top: 249px;
+    left: 222px;
+    background-color: #1f3633;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-first .text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 8px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-first .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+.project-first .label-AA {
+    display: flex;
+    width: 443px;
+    height: 63px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 129px;
+    left: 61px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 1px 3px 1px #00000026, 0px 1px 2px #0000004c;
+}
+
+.project-first .state-layer {
+    display: inline-flex;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 16px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-first .label-text {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-weight: 500;
+    color: #1d1b20;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0.10px;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.project-first .text-wrapper-2 {
+    position: absolute;
+    width: 310px;
+    height: 30px;
+    top: 88px;
+    left: 61px;
+    font-weight: 400;
+    color: #000000;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.project-first .text-wrapper-3 {
+    position: absolute;
+    width: 287px;
+    height: 46px;
+    top: 23px;
+    left: 159px;
+    font-weight: 700;
+    color: #000000;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
