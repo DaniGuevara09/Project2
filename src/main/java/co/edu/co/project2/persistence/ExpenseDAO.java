@@ -1,5 +1,6 @@
 package co.edu.co.project2.persistence;
 
+import co.edu.co.project2.logic.Category;
 import co.edu.co.project2.logic.Expense;
 import com.mongodb.ConnectionString;
 import com.mongodb.client.*;
@@ -23,8 +24,8 @@ public class ExpenseDAO implements InterfaceDAO<Expense> {
         List<Expense> expenses = new ArrayList<>();
 
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
-            MongoDatabase mongoDatabase = mongoClient.getDatabase("expenseControl");
-            MongoCollection<Document> collection = mongoDatabase.getCollection("expenses");
+            MongoDatabase mongoDatabase = mongoClient.getDatabase("budget");
+            MongoCollection<Document> collection = mongoDatabase.getCollection("expense");
 
             FindIterable<Document> it = collection.find();
             for (Document doc : it) {
@@ -34,27 +35,53 @@ public class ExpenseDAO implements InterfaceDAO<Expense> {
                 expense.setIncome(doc.getBoolean("isIncome"));
                 expense.setDescription(doc.getString("description"));
 
+                // Recuperar las categorías
+                List<Document> categoriesDocs = (List<Document>) doc.get("categories");
+                ArrayList<Category> categories = new ArrayList<>();
+                for (Document categoryDoc : categoriesDocs) {
+                    Category category = new Category();
+                    category.setName(categoryDoc.getString("name"));
+                    category.setBudget(categoryDoc.getInteger("budget"));
+                    category.setMaxBudget(categoryDoc.getInteger("maxBudget"));
+                    categories.add(category);
+                }
+                expense.setCategories(categories); // Asignar categorías al objeto Expense
+
                 expenses.add(expense);
             }
         }
         return expenses;
     }
 
+
     @Override
     public Expense save(Expense expense) {
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
-            MongoDatabase mongoDatabase = mongoClient.getDatabase("expenseControl");
-            MongoCollection<Document> collection = mongoDatabase.getCollection("expenses");
+            MongoDatabase mongoDatabase = mongoClient.getDatabase("budget");
+            MongoCollection<Document> collection = mongoDatabase.getCollection("expense");
 
+            // Convertir las categorías a documentos
+            List<Document> categoriesDocs = new ArrayList<>();
+            for (Category category : expense.getCategories()) {
+                Document categoryDoc = new Document("name", category.getName())
+                        .append("budget", category.getBudget())
+                        .append("maxBudget", category.getMaxBudget());
+                categoriesDocs.add(categoryDoc);
+            }
+
+            // Crear el documento de Expense
             Document expenseDoc = new Document("date", expense.getDate().toString())
                     .append("totalBudget", expense.getTotalBudget())
                     .append("isIncome", expense.isIncome())
-                    .append("description", expense.getDescription());
+                    .append("description", expense.getDescription())
+                    .append("categories", categoriesDocs); // Agregar las categorías
 
+            // Insertar en la base de datos
             collection.insertOne(expenseDoc);
         }
         return expense;
     }
+
 
     @Override
     public void close() throws IOException {

@@ -8,6 +8,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
@@ -36,24 +37,23 @@ public class SvExpense extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LocalDate date = LocalDate.parse(request.getParameter("date"));
-        int totalBudget = Integer.parseInt(request.getParameter("totalBudget"));
-        boolean isIncome = Boolean.parseBoolean(request.getParameter("isIncome"));
-        String description = request.getParameter("description");
-        String categoriesJson = request.getParameter("categories");
+        // Leer el cuerpo de la solicitud como JSON
+        StringBuilder jsonBuilder = new StringBuilder();
+        String line;
+        try (BufferedReader reader = request.getReader()) {
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line);
+            }
+        }
 
-        Type categoryListType = new TypeToken<ArrayList<Category>>(){}.getType();
-        ArrayList<Category> categories = gson.fromJson(categoriesJson, categoryListType);
+        // Convertir el JSON recibido a un objeto Expense
+        String requestBody = jsonBuilder.toString();
+        Expense expense = gson.fromJson(requestBody, Expense.class);
 
-        Expense expense = new Expense();
-        expense.setDate(date);
-        expense.setTotalBudget(totalBudget);
-        expense.setIncome(isIncome);
-        expense.setDescription(description);
-        expense.setCategories(categories);
-
+        // Guardar el expense en la base de datos
         expenseDAO.save(expense);
 
+        // Responder con éxito
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().write("Expense saved successfully!");
     }
