@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('No se encontró el elemento para mostrar el monto.');
     }
 
-    // Configurar el evento para guardar un nuevo expense
+    // Configurar el evento para guardar un nuevo movimiento
     const buttonNew = document.querySelector('#buttonNew');
     if (buttonNew) {
         buttonNew.addEventListener('click', () => {
@@ -38,7 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Si hay un campo de totalBudget manual, úsalo; de lo contrario, usa amount
             const totalBudgetInput = document.querySelector('#totalBudget');
-            const totalBudget = totalBudgetInput ? parseInt(totalBudgetInput.value, 10) : amount;
+            let totalBudget = totalBudgetInput ? parseInt(totalBudgetInput.value, 10) : amount;
+
+            // Si es un ingreso, sumar el amountValue al totalBudget y actualizar el amount
+            if (isIncome) {
+                totalBudget += amountValue;
+                // Actualizar el amount en localStorage
+                const newAmount = amount + amountValue;
+                localStorage.setItem('amountAvailable', newAmount.toString());
+                // Actualizar el elemento de la interfaz de usuario
+                amountElement.textContent = `$ ${newAmount}`;
+            }
 
             const description = document.querySelector('#description-txt').value;
 
@@ -85,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             xhr.send(expenseJson);
         });
     } else {
-        console.error('No se encontró el botón para guardar.');
+        console.error('No se encontró el botón para         guardar.');
     }
 
     // Configurar el combobox para el tipo de transacción
