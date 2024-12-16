@@ -63,12 +63,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 amountElement.textContent = `$ ${newAmount.toFixed(2)}`;
             }
 
+            // Actualizar el presupuesto de la categoría
+            const newCategoryBudget = isIncome ? categoryBudget + amountValue : categoryBudget - amountValue;
+            localStorage.setItem(selectedCategory, newCategoryBudget.toString()); // Almacenar el nuevo presupuesto en localStorage
+
+            // Actualizar el elemento de la interfaz de usuario para la categoría
+            const categoryElement = document.querySelector(`.text-wrapper-10[data-category="${selectedCategory}"]`);
+            if (categoryElement) {
+                categoryElement.textContent = `$ ${newCategoryBudget.toFixed(2)}`;
+            }
+
             const description = document.querySelector('#description-txt').value;
 
             // Obtener la fecha seleccionada
             const dateInput = document.querySelector('#date');
             const date = dateInput ? dateInput.value : null; // Obtener la fecha
-
             // Obtener las categorías seleccionadas
             const categories = [];
             const selectedCategories = document.querySelectorAll('#categorySelect option:checked');
@@ -126,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Configurar el combobox para las categorías
-    const categoryOptions = ['Food', 'Transportation', 'Entertainment', 'Savings', 'Others'];
+    const categoryOptions = ['Feeding', 'Transportation', 'Recreation', 'Savings', 'Others'];
     const categorySelect = document.querySelector('#categorySelect');
     if (categorySelect) {
         categoryOptions.forEach(category => {
