@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar el monto en el elemento correspondiente
     const amountElement = document.querySelector('.label-AA .state-layer .label-text');
     if (amountElement) {
-        amountElement.textContent = `$ ${amount}`;
+        amountElement.textContent = `$ ${amount.toFixed(2)}`;
     } else {
         console.warn('No se encontró el elemento para mostrar el monto.');
     }
@@ -36,6 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 return; // Salir de la función para evitar el envío
             }
 
+            // Obtener la categoría seleccionada
+            const selectedCategory = document.querySelector('#categorySelect').value;
+
+            // Recuperar el valor de la categoría desde localStorage
+            const categoryBudget = parseFloat(localStorage.getItem(selectedCategory)) || 0;
+
+            // Validar si es un gasto y el monto es mayor que el presupuesto de la categoría
+            if (!isIncome && amountValue > categoryBudget) {
+                alert(`You cannot add an expense greater than the budget for ${selectedCategory}, which is $${categoryBudget.toFixed(2)}.`); // Mensaje de error
+                amountInput.focus(); // Enfocar el campo de entrada
+                return; // Salir de la función para evitar el envío
+            }
+
             // Si hay un campo de totalBudget manual, úsalo; de lo contrario, usa amount
             const totalBudgetInput = document.querySelector('#totalBudget');
             let totalBudget = totalBudgetInput ? parseInt(totalBudgetInput.value, 10) : amount;
@@ -47,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newAmount = amount + amountValue;
                 localStorage.setItem('amountAvailable', newAmount.toString());
                 // Actualizar el elemento de la interfaz de usuario
-                amountElement.textContent = `$ ${newAmount}`;
+                amountElement.textContent = `$ ${newAmount.toFixed(2)}`;
             }
 
             const description = document.querySelector('#description-txt').value;
@@ -95,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             xhr.send(expenseJson);
         });
     } else {
-        console.error('No se encontró el botón para         guardar.');
+        console.error('No se encontró el botón para guardar.');
     }
 
     // Configurar el combobox para el tipo de transacción
