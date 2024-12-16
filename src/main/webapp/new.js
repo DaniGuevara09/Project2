@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const categories = [];
             const selectedCategories = document.querySelectorAll('#categorySelect option:checked');
             selectedCategories.forEach(option => {
-                categories.push({ name: option.value, budget: 0, maxBudget: 0 });
+                categories.push(option.value); // Solo almacenar el nombre de la categoría
             });
 
             // Crear el objeto expense
@@ -55,6 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     console.log('Respuesta del servidor:', xhr.responseText);
                     alert('Expense saved successfully!');
+
+                    // Almacenar los valores en localStorage antes de redirigir
+                    localStorage.setItem('lastTotalBudget', totalBudget);
+                    localStorage.setItem('lastIsIncome', isIncome);
+                    localStorage.setItem('lastCategory', JSON.stringify(categories)); // Almacenar como JSON
+
                     window.location.href = 'mainWindow.html'; // Redireccionar después del éxito
                 } else if (xhr.readyState === 4) {
                     console.error('Error al guardar el expense:', xhr.responseText);
