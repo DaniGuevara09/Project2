@@ -15,11 +15,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttonNew = document.querySelector('#buttonNew');
     if (buttonNew) {
         buttonNew.addEventListener('click', () => {
+            // Obtener el valor del campo de Amount
+            const amountInput = document.getElementById('editableField');
+            const amountValue = parseFloat(amountInput.value);
+
+            // Validar que el monto sea mayor que 0
+            if (amountValue <= 0) {
+                alert('Please enter an amount greater than 0.'); // Mensaje de error
+                amountInput.focus(); // Enfocar el campo de entrada
+                return; // Salir de la función para evitar el envío
+            }
+
+            // Obtener el tipo de transacción
+            const isIncome = document.querySelector('#typeSelect').value === 'Income';
+
+            // Validar si es un gasto y el monto es menor que el disponible
+            if (!isIncome && amountValue > amount) {
+                alert(`You cannot add an expense greater than $${amount}.`); // Mensaje de error
+                amountInput.focus(); // Enfocar el campo de entrada
+                return; // Salir de la función para evitar el envío
+            }
+
             // Si hay un campo de totalBudget manual, úsalo; de lo contrario, usa amount
             const totalBudgetInput = document.querySelector('#totalBudget');
             const totalBudget = totalBudgetInput ? parseInt(totalBudgetInput.value, 10) : amount;
 
-            const isIncome = document.querySelector('#typeSelect').value === 'Income';
             const description = document.querySelector('#description-txt').value;
 
             // Obtener la fecha seleccionada
