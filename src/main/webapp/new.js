@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar el monto en el elemento correspondiente
     const amountElement = document.querySelector('.label-AA .state-layer .label-text');
     if (amountElement) {
-        amountElement.textContent = `$ ${amount.toFixed(2)}`;
+        amountElement.textContent = `$ ${amount.toFixed()}`;
     } else {
         console.warn('No se encontró el elemento para mostrar el monto.');
     }
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Validar si es un gasto y el monto es mayor que el presupuesto de la categoría
             if (!isIncome && amountValue > categoryBudget) {
-                alert(`You cannot add an expense greater than the budget for ${selectedCategory}, which is $${categoryBudget.toFixed(2)}.`); // Mensaje de error
+                alert(`You cannot add an expense greater than the budget for ${selectedCategory}, which is $${categoryBudget.toFixed()}.`); // Mensaje de error
                 amountInput.focus(); // Enfocar el campo de entrada
                 return; // Salir de la función para evitar el envío
             }
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newAmount = amount + amountValue;
                 localStorage.setItem('amountAvailable', newAmount.toString());
                 // Actualizar el elemento de la interfaz de usuario
-                amountElement.textContent = `$ ${newAmount.toFixed(2)}`;
+                amountElement.textContent = `$ ${newAmount.toFixed()}`;
             }
 
             // Actualizar el presupuesto de la categoría
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Actualizar el elemento de la interfaz de usuario para la categoría
             const categoryElement = document.querySelector(`.text-wrapper-10[data-category="${selectedCategory}"]`);
             if (categoryElement) {
-                categoryElement.textContent = `$ ${newCategoryBudget.toFixed(2)}`;
+                categoryElement.textContent = `$ ${newCategoryBudget.toFixed()}`;
             }
 
             const description = document.querySelector('#description-txt').value;

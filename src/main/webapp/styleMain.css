@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    font-size: 24px;
 }
 
 .project .div {
@@ -41,11 +42,11 @@
 }
 
 .project .overlap-group {
-    position: relative;
     width: 1264px;
-    height: 561px;
+    height: 620px;
     background-color: #ededed;
     border-radius: 10px;
+    margin-top: 0;
 }
 
 .project .text-wrapper-2 {
@@ -64,14 +65,13 @@
     white-space: nowrap;
 }
 
-.project .monthly {
+.project .food {
     position: absolute;
     width: 650px;
     height: 60px;
     top: 101px;
     left: 64px;
 }
-
 .project .text-wrapper-3 {
     position: absolute;
     width: 197px;
@@ -82,8 +82,9 @@
     color: #000000;
     font-size: 24px;
     letter-spacing: 0;
-    line-height: normal;
+    line-height: 60px;
 }
+
 
 .project .assistive-chip {
     display: flex;
@@ -150,10 +151,10 @@
     color: #000000;
     font-size: 24px;
     letter-spacing: 0;
-    line-height: normal;
+    line-height: 60px;
 }
 
-.project .recreation {
+.project .saving {
     position: absolute;
     width: 650px;
     height: 60px;
@@ -161,7 +162,7 @@
     left: 64px;
 }
 
-.project .other {
+.project .recreation {
     position: absolute;
     width: 650px;
     height: 60px;
@@ -169,18 +170,17 @@
     left: 64px;
 }
 
-.project .movements {
+.project .other {
     position: absolute;
-    width: 1274px;
-    height: 278px;
-    top: 696px;
-    left: 88px;
+    width: 650px;
+    height: 60px;
+    top: 531px;
+    left: 64px;
 }
 
 .project .overlap {
     position: relative;
     width: 1264px;
-    height: 278px;
     background-color: #ededed;
     border-radius: 10px;
 }
@@ -271,7 +271,6 @@
 }
 
 .project .overlap-group-2 {
-    position: relative;
     width: 1264px;
     height: 334px;
     background-color: #ededed;
@@ -545,4 +544,18 @@
 
 .navbar a {
     text-decoration: none;
+}
+
+.state-layer {
+    display: flex; /* Habilita el uso de flexbox */
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+}
+
+.label-message {
+    color: #a80101; /* Cambia el color del texto a rojo */
+    text-align: right; /* Alinea el texto a la derecha */
+    margin-top: 50px;
+    margin-left: 750px; /* Asegura que el margen izquierdo sea automático para empujar el mensaje a la derecha */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    line-height: 60px;
 }
