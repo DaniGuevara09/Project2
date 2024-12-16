@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="styleMain.css" />
     <title>Expense Control</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="graphic.js"></script>
 </head>
 <body>
 <div class="project">
     <div class="div">
-        <div class="text-wrapper" id="graphics">Graphics</div>
         <div class="budget">
             <div class="overlap-group-wrapper">
                 <div class="overlap-group">
@@ -102,12 +103,13 @@
                 <div class="text-wrapper-13">Amount Available</div>
             </div>
         </div>
+        <div class="text-wrapper" id="graphics">Graphics</div>
+        <canvas id="myChart" width="400" height="200"></canvas>
         <div class="navbar-user-light">
             <a href="#amount" class="text-wrapper-14">Expense Control</a>
             <div class="frame">
                 <div class="navbar">
                     <a href="#category" class="text-wrapper-15">Categories</a>
-                    <a href="#movements" class="text-wrapper-15">Movements</a>
                     <a href="#budget" class="text-wrapper-15">Budget</a>
                     <a href="#graphics" class="text-wrapper-15">Charts</a>
                 </div>

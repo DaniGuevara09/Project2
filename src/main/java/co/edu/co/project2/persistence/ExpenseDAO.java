@@ -1,5 +1,6 @@
 package co.edu.co.project2.persistence;
 
+import co.edu.co.project2.logic.BudgetData;
 import co.edu.co.project2.logic.Category;
 import co.edu.co.project2.logic.Expense;
 import com.mongodb.ConnectionString;
@@ -81,8 +82,29 @@ public class ExpenseDAO implements InterfaceDAO<Expense> {
         return expense;
     }
 
+    public List<BudgetData> getTotalBudgetByDate() {
+        List<BudgetData> budgetDataList = new ArrayList<>();
+
+        try (MongoClient mongoClient = MongoClients.create(connectionString)) {
+            MongoDatabase mongoDatabase = mongoClient.getDatabase("budget");
+            MongoCollection<Document> collection = mongoDatabase.getCollection("expense");
+
+            // Agregar la agregación para obtener el total del presupuesto por fecha
+            AggregateIterable<Document> result = collection.aggregate(List.of(
+                    new Document("$group", new Document("_id", "$date")
+                            .append("totalBudget", new Document("$sum", "$totalBudget")))
+            ));
+
+            for (Document doc : result) {
+                String date = doc.getString("_id");
+                double totalBudget = doc.getDouble("totalBudget");
+                budgetDataList.add(new BudgetData(date, (int) totalBudget));
+            }
+        }
+        return budgetDataList;
+    }
+
     @Override
     public void close() throws IOException {
-        // Implementar lógica de cierre si es necesario
     }
 }

@@ -1,5 +1,6 @@
 package co.edu.co.project2.servlets;
 
+import co.edu.co.project2.logic.BudgetData;
 import co.edu.co.project2.logic.Category;
 import co.edu.co.project2.logic.Expense;
 import co.edu.co.project2.persistence.ExpenseDAO;
@@ -14,6 +15,8 @@ import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.reflect.TypeToken;
 
 @WebServlet(name = "SvExpense", value = "/SvExpense")
@@ -30,9 +33,14 @@ public class SvExpense extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        ArrayList<Expense> expenses = (ArrayList<Expense>) expenseDAO.getAll();
-        out.println(gson.toJson(expenses));
+
+        // Obtener los datos del presupuesto
+        List<BudgetData> budgetDataList = expenseDAO.getTotalBudgetByDate();
+
+        // Convertir a JSON y enviar la respuesta
+        out.println(gson.toJson(budgetDataList));
     }
 
     @Override
