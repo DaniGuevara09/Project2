@@ -1,7 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Función para calcular la suma de todos los presupuestos de las categorías
+    const calculateTotalAmount = () => {
+        const categoryOptions = ['Feeding', 'Transportation', 'Recreation', 'Savings', 'Others'];
+        let totalAmount = 0;
+
+        categoryOptions.forEach(category => {
+            const categoryBudget = parseFloat(localStorage.getItem(category)) || 0;
+            totalAmount += categoryBudget;
+        });
+
+        return totalAmount;
+    };
+
     // Recuperar el monto desde localStorage
-    const amount = parseFloat(localStorage.getItem('amountAvailable')) || 0; // Valor predeterminado 0 si no existe
-    console.log(`Amount from localStorage: ${amount}`);
+    const amount = calculateTotalAmount(); // Sumar todos los valores de las categorías
+    console.log(`Total amount calculated from categories: ${amount}`);
 
     // Mostrar el monto en el elemento correspondiente
     const amountElement = document.querySelector('.label-AA .state-layer .label-text');
